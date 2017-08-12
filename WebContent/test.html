@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resource/jquery.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+var params = [];
+var query = window.location.hash.substr(1);
+var pairs = query.split('&');
+for(var i in pairs){
+var couplet = pairs[i].split("=");
+params[couplet[0]] = couplet[1];
+} 
+
+	$.ajax({  
+        url : 'https://127.0.0.1:8443/LoginWithAmazon/ServletDemo',  
+        type : "GET",  
+        datatype:"json",  
+        data : {access_token:params['access_token']}, 
+        success : function(data, stats) {  
+            if (stats == "success") {  
+            	alert("ok");
+            }  
+        },  
+        error : function(data){  
+            alert("请求失败");  
+        }  
+    });
+</script>
+
+</body>
+</html>

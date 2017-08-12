@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!-- hello
+
+  <a href="index.htm#xl=xuelin" id="LoginWithAmazon">
+  hah -->
+  
+<div id="amazon-root"></div>
+<script type="text/javascript">
+
+  window.onAmazonLoginReady = function() {
+    amazon.Login.setClientId('amzn1.application-oa2-client.479dcc834fc342ec84077230b5383df0');
+  };
+  (function(d) {
+    var a = d.createElement('script'); a.type = 'text/javascript';
+    a.async = true; a.id = 'amazon-login-sdk';
+    a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+    d.getElementById('amazon-root').appendChild(a);
+  })(document);
+
+</script>
+
+  <a href="#" id="LoginWithAmazon">
+  <img border="0" alt="Login with Amazon"
+    src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+    width="156" height="32" />
+</a>
+<script type="text/javascript">
+
+  document.getElementById('LoginWithAmazon').onclick = function() {
+    options = { scope : 'profile', response_type: 'token', popup: false  };
+
+    amazon.Login.authorize(options, 'https://127.0.0.1:8443/LoginWithAmazon/test.html');
+    return false;
+  };
+
+</script>
+
+
+<a id="Logout">Logout</a>
+
+
+</body>
+</html>
